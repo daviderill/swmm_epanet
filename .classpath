@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.6.0_03"/>
+	<classpathentry kind="var" path="GVSIG_INSTALL_DIR/bin/andami.jar" sourcepath="/GVSIG_SRC/_fwAndami/src"/>
+	<classpathentry kind="var" path="GVSIG_INSTALL_DIR/bin/gvSIG/extensiones/com.iver.cit.gvsig/lib/fmap.jar" sourcepath="/GVSIG_INSTALL_DIR/bin/gvSIG/extensiones/com.iver.cit.gvsig/lib/fmap.jar"/>
+	<classpathentry kind="var" path="GVSIG_INSTALL_DIR/bin/gvSIG/extensiones/com.iver.cit.gvsig/lib/org.cresques.cts.jar"/>
+	<classpathentry kind="var" path="GVSIG_INSTALL_DIR/bin/gvSIG/extensiones/com.iver.cit.gvsig/lib/gt2-shapefile.jar" sourcepath="/GEODATA_TOOLS/geotools-src-2.1.M4">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/extDbfToInp/docs/geotools-javadoc-2.1.M4.zip!/docs/api"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="GVSIG_INSTALL_DIR/bin/gvSIG/extensiones/com.iver.cit.gvsig/lib/gt2-main.jar" sourcepath="/GEODATA_TOOLS/geotools-src-2.1.M4"/>
+	<classpathentry kind="var" path="GVSIG_INSTALL_DIR/bin/lib/org.gvsig.exceptions.jar"/>
+	<classpathentry kind="lib" path="lib/sqlitejdbc-v056.jar"/>
+	<classpathentry kind="var" path="GVSIG_INSTALL_DIR/bin/gvSIG/extensiones/com.iver.cit.gvsig/lib/gdbms-0.8-SNAPSHOT.jar"/>
+	<classpathentry kind="var" path="GVSIG_INSTALL_DIR/bin/gvSIG/extensiones/com.iver.cit.gvsig/lib/driver-manager-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/formsrt.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

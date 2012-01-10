@@ -1,0 +1,31 @@
+[TITLE]
+;Fichero creado automáticamente con la herramienta "Data export to EPANET (inp)"
+;Creado por David Erill, Carlos López Quintanilla y Xavier Torret
+;Version 1.4
+;Agosto-2011
+
+[OPTIONS]
+Units              	LPS 
+ 
+[JUNCTIONS]
+;;ID_junct       Elev             Demand           Pattern         
+;;-------------- ---------------- ---------------- ---------------- 
+
+
+[PIPES]
+;;ID_pipe         Node1           Node2            Length      		Diameter    	 Roughness   	  MinorLoss   	   Status
+;;-------------- ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- 
+
+
+[COORDINATES]
+;;ID_junct       Coordenada X     Coordenada Y      
+;;-------------- ---------------- ----------------
+
+
+[VERTICES]
+;;ID_pipe        Coordenada X     Coordenada Y      
+;;-------------- ---------------- ----------------
+ 
+ 
+[END]
+

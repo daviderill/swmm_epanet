@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+ <plugin-config>
+  <depends plugin-name="com.iver.cit.gvsig" />
+  <resourceBundle name="text"/>
+  <libraries library-dir="."/>
+  
+  <extensions>
+        <extension class-name="com.tecnicsassociats.gvsig.swmm_epanet.InpExtension"
+                description="INPcom. Exportacion datos Epanet y EpaSWMM"
+                active="true"
+                priority="1">
+           <menu text="INPcom/menu_title" action-command="init" icon="images/logo_epa.jpg" position="99997"/>
+        </extension>            
+  </extensions>
+ </plugin-config>

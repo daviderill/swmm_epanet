@@ -1,0 +1,59 @@
+[TITLE]
+;Fichero creado automáticamente con la herramienta "Data export to SWMM (inp)"
+;Creado por David Erill, Carlos López Quintanilla y Xavier Torret
+;Version 1.0
+;Agosto-2011
+
+[OPTIONS]
+FLOW_UNITS CMS
+
+
+[SUBCATCHMENTS]
+;;                                         Área             Porcent.         Anchura          Pend.            Longitud  
+;;Nombre         Pluviómetro  Salida       Total            Imperm.          Width            Porcent.         Cuneta      
+;;-------------- ------------ ------------ ---------------- ---------------- ---------------- ---------------- --------- 
+
+
+[JUNCTIONS]
+;;               Cota del         Prof.            Profundidad  Pression     Area de
+;;Nombre         Fondo            Máxima           inicial      addicional   inundacion (m³)
+;;-------------- ---------------- ---------------- ------------ ------------ ------------
+
+ 
+[OUTFALLS]
+;;               Cota del     Tipo de          
+;;Nombre         Fondo        Vertido
+;;-------------- ------------ ------------
+
+
+[CONDUITS]
+;;               Nudo             Nudo                              Coef. n          Desnivel         Desnivel         Caudal ini.
+;;Nombre         Entrada          Salida           Longitud         Manning          Entrada          Salida           modelado 
+;;-------------- ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- ----------
+
+
+[XSECTIONS]
+;;
+;;Línea          Forma            Geom1            Geom2            Geom3            Geom4     
+;;-------------- ---------------- ---------------- ---------------- ---------------- ----------------
+
+
+[COORDINATES]
+;;
+;;Nudo           Coordenada X     Coordenada Y      
+;;-------------- ---------------- ----------------
+
+
+[VERTICES]
+;;
+;;Línea          Coordenada X     Coordenada Y      
+;;-------------- ---------------- ----------------
+
+
+[Polygons]
+;;
+;;Subcuenca      Coordenada X     Coordenada Y      
+;--------------- ---------------- ----------------
+ID_Subcat        xcoord1          ycoord1
+ID_Subcat        xcoord2          ycoord2
+ID_Subcat        xcoord3          ycoord3
