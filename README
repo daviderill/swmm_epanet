@@ -1,1 +1,6 @@
-TEST
+swmm_epanet is a software developed by Tecnicsassociats <http://www.tecnicsassociats.com/web/>
+Developer: David Erill <daviderill79@gmail.com>
+Coordinator: Carlos Lopez <carlos.lopez@geodata.es>
+Engineering assistance: Xavier Torret <xtorret@tecnicsassociats.com>
+
+Complete source code for the swmm_epanet application is available from https://github.com/daviderill/swmm_epanet
