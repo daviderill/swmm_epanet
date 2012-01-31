@@ -24,12 +24,12 @@ package com.tecnicsassociats.gvsig.swmm_epanet;
 public class Constants {
 
 	public static final String INI_FILE = "inp.properties";
-    public static final String DIR_SHP = "DIR_SHP";
-	
+	public static final String DIR_SHP = "DIR_SHP";
+
 	public static final String CONFIG_PLUGIN = "com.tecnicsassociats.gvsig.swmm_epanet";	    
-    public static final String FORMSPACKAGE = "com/tecnicsassociats/gvsig/swmm_epanet/";
-    public static final String MAIN_FORM = FORMSPACKAGE + "FormExport.jfrm";
-	
+	public static final String FORMSPACKAGE = "com/tecnicsassociats/gvsig/swmm_epanet/";
+	public static final String MAIN_FORM = FORMSPACKAGE + "FormExport.jfrm";
+
 	public static final String LBL_TITLE = "lbl_title";  //com.jeta.forms.components.label.JETALabel
 	public static final String LBL_DIR_OUT = "lbl_dir_out";  //com.jeta.forms.components.label.JETALabel
 	public static final String LBL_DIR_SHP = "lbl_dir_shp";  //com.jeta.forms.components.label.JETALabel
