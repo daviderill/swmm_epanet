@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 
 import com.iver.andami.Launcher;
@@ -52,17 +53,20 @@ public class WindowController implements ActionListener{
 		this.form = view.getForm();
 		this.prop = InpExtension.getIniProperties();	
 		this.model.sExport = "SWMM_";		
+		String sVersion = "";
 		
 		try{
 			
 			form.getLabel(Constants.LBL_TITLE).setText(PluginServices.getText(null, "lbl_title"));		
 			form.getLabel(Constants.LBL_DIR_SHP).setText(PluginServices.getText(null, "lbl_dir_shp"));
 			form.getLabel(Constants.LBL_DIR_OUT).setText(PluginServices.getText(null, "lbl_dir_out"));
-			form.getLabel(Constants.LBL_FILE_OUT).setText(PluginServices.getText(null, "lbl_file_out"));	
-			form.getLabel(Constants.LBL_VERSION).setText(PluginServices.getText(null, "lbl_version"));			
+			form.getLabel(Constants.LBL_FILE_OUT).setText(PluginServices.getText(null, "lbl_file_out"));			
+			sVersion = PluginServices.getText(null, "lbl_version") + " " + prop.getProperty("VERSION_CODE");
+			form.getLabel(Constants.LBL_VERSION).setText(sVersion);
 			form.getButton(Constants.BTN_ACCEPT).setText(PluginServices.getText(null, "btn_accept"));
 			form.getButton(Constants.BTN_CANCEL).setText(PluginServices.getText(null, "btn_cancel"));
 			form.getButton(Constants.BTN_HELP_TEMPLATE).setText(PluginServices.getText(null, "btn_help_template"));			
+			form.getCheckBox(Constants.CHK_POLYGONS).setText(PluginServices.getText(null, "chk_polygons"));
 			
 			form.getRadioButton(Constants.OPT_EPANET).setActionCommand("EPANET_");
 			form.getRadioButton(Constants.OPT_SWMM).setActionCommand("SWMM_");
@@ -102,6 +106,7 @@ public class WindowController implements ActionListener{
 			chooseFolderOut();
 		}
 		else if (command.equalsIgnoreCase("accept")){
+			this.model.bPolygons = !form.getCheckBox(Constants.CHK_POLYGONS).isSelected();
 			executeAccept();
 		}
 		else if (command.equalsIgnoreCase("cancel")){
@@ -113,7 +118,7 @@ public class WindowController implements ActionListener{
 		else if (command.equalsIgnoreCase("EPANET_") || command.equalsIgnoreCase("SWMM_")){
 			this.model.sExport = command;
 		}
-
+		
 	}
 	
 	

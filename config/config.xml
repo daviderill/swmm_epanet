@@ -6,10 +6,10 @@
   
   <extensions>
         <extension class-name="com.tecnicsassociats.gvsig.swmm_epanet.InpExtension"
-                description="INPcom. Exportacion datos Epanet y EpaSWMM"
+                description="INP.com. Exportacion datos Epanet y EpaSWMM"
                 active="true"
                 priority="1">
-           <menu text="INPcom/menu_title" action-command="init" icon="images/logo_epa.jpg" position="99997"/>
+           <menu text="INP.com/menu_title" action-command="init" icon="images/logo_epa.jpg" position="99997"/>
         </extension>            
   </extensions>
  </plugin-config>

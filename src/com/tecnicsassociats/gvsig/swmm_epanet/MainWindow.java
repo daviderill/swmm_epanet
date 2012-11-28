@@ -61,8 +61,8 @@ public class MainWindow extends JPanel implements SingletonWindow {
 
 	public WindowInfo getWindowInfo() {		
 		WindowInfo m_viewInfo = new WindowInfo(WindowInfo.RESIZABLE);
-    	m_viewInfo.setWidth(480);
-		m_viewInfo.setHeight(300);
+    	m_viewInfo.setWidth(540);   // 480
+		m_viewInfo.setHeight(350);   // 300
 		m_viewInfo.setTitle(PluginServices.getText(this, "inp_descr"));		
 		return m_viewInfo;
 	}

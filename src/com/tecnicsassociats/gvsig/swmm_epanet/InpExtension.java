@@ -85,6 +85,7 @@ public class InpExtension extends Extension {
 	private int default_size;
 	private String sDirInp;
 
+	public boolean bPolygons;   // True if we have to process polygons target (81)
 	public String sExport;   // "EPANET_" o "SWMM_"
 	public File fileOut;
 	public File fileHelp;
@@ -195,6 +196,7 @@ public class InpExtension extends Extension {
 			Statement stat = conn.createStatement();
 			ResultSet rs = stat.executeQuery(sql);					
 			while (rs.next()) {
+				System.out.println(rs.getInt("id") + "  " + rs.getInt("dbf_id"));
 				processTarget(rs.getInt("id"), rs.getInt("dbf_id"), rs.getInt("lines"));	
 			}		    
 			rs.close();
@@ -225,11 +227,16 @@ public class InpExtension extends Extension {
 			raf.writeBytes(line + "\r\n");
 		}
 
-		// If file is null or out of bounds then exit function
-		if (fileIndex < 0 || fDbf[fileIndex] == null){
+		// If file is null or out of bounds or not exists then exit function
+		if (fileIndex < 0 || fDbf[fileIndex] == null || !fDbf[fileIndex].exists()){
 			return;
 		}
 
+		// Target polygons: Write only if check is selected
+		if (bPolygons == false && id == polygons_target_id){
+			return;
+		}
+		
 		// Get data of the specified DBF file
 		this.lMapDades = readDBF(fDbf[fileIndex]);
 		if (this.lMapDades.isEmpty()) return;		
@@ -247,7 +254,6 @@ public class InpExtension extends Extension {
 		ListIterator<Map<String, String>> it = this.lMapDades.listIterator();
 		Map<String, String> m;   // Current DBF row data
 		int index = 0;
-		VectorialDriver vd = getDriver(fShp[fileIndex]);	
 		String sValor = null;
 		int size = 0;
 		// Iterate over DBF content
@@ -278,8 +284,15 @@ public class InpExtension extends Extension {
 			}
 			// Target polygons: Write id and coordinates of the current row
 			if (id == polygons_target_id && sValor != null){
-				writePoint(vd, index, sValor, size);
-				index++;
+				if (fShp[fileIndex] != null && fShp[fileIndex].exists()) {	
+					VectorialDriver vd = getDriver(fShp[fileIndex]);				
+					writePoint(vd, index, sValor, size);
+					index++;
+				}		
+				else{
+					//System.out.println("Shape null");
+					//showError("inp_error_notfound", fShp[index].getPath(), "inp_descr");	
+				}
 			}
 			else{
 				raf.writeBytes("\r\n");
@@ -384,16 +397,12 @@ public class InpExtension extends Extension {
 
 		String sDBF = sDir + File.separator + sFile + ".dbf";
 		fDbf[index] = new File(sDBF);
-		if (!fDbf[index].exists()) {
-			showError("inp_error_notfound", sFile, "inp_descr");				
-			return false;
-		}
+		//if (!fDbf[index].exists()) {
+		//	showError("inp_error_notfound", sFile, "inp_descr");				
+		//	return false;
+		//}
 		String sSHP = sDir + File.separator + sFile + ".shp";
-		fShp[index] = new File(sSHP);
-		if (!fShp[index].exists()) {
-			showError("inp_error_notfound", sFile, "inp_descr");				
-			return false;
-		}		
+		fShp[index] = new File(sSHP);	
 		return true;
 
 	}
@@ -435,12 +444,12 @@ public class InpExtension extends Extension {
 	// Write point: id and coordinates has the same length (specified by size parameter)
 	private void writePoint(VectorialDriver vd, int index, String sValor, int size) throws IOException{
 
+		int num = 0;
 		try {
 
 			IGeometry geometry = vd.getShape(index);
 			double[] pd = new double[2];			
 			PathIterator iter = geometry.getPathIterator(null);
-			int num = 0;
 			while (!(iter.isDone())) {
 				if (iter.currentSegment(pd)!= PathIterator.SEG_CLOSE){
 					if (num > 0){
@@ -471,6 +480,7 @@ public class InpExtension extends Extension {
 			}
 
 		} catch (ReadDriverException e) {
+			System.out.println("writePoint Error. num = " + num);
 			e.printStackTrace();
 		}	
 

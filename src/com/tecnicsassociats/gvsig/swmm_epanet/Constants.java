@@ -46,6 +46,7 @@ public class Constants {
 	public static final String BTN_FOLDER_OUT = "btn_folder_out";  //javax.swing.JButton
 	public static final String OPT_SWMM = "opt_swmm";  //javax.swing.JRadioButton
 	public static final String OPT_EPANET = "opt_epanet";  //javax.swing.JRadioButton
+	public static final String CHK_POLYGONS = "chk_polygons";  	
 
 
 }
